@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stabilimento Balneare Maristaeli Catania - Marina Militare</title>
+    <style>
+        :root {
+            --navy-blue: #003366;
+            --light-blue: #99ccff;
+            --medium-blue: #0066cc;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --light-grey: #f5f5f5;
+            --dark-grey: #333333;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('Sfondo.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #002244, var(--navy-blue), #002244);
+            color: var(--white);
+            padding: 25px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--gold);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--gold);
+        }
+        
+        nav {
+            background: linear-gradient(to right, var(--light-blue), #66b3ff, var(--light-blue));
+            padding: 12px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: var(--navy-blue);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1.05rem;
+        }
+        
+        nav a:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero {
+            background-color: #0066aa;
+            color: var(--white);
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            background-image: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 102, 170, 0.6)), url('Sfondo.png');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 5px solid var(--gold);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            padding: 30px;
+            background-color: rgba(0, 51, 102, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--gold);
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            color: var(--gold);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        .marina-logo {
+            width: 110px;
+            height: auto;
+            margin: 20px auto 0;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
+            transition: transform 0.3s ease;
+        }
+        
+        .marina-logo:hover {
+            transform: scale(1.1);
+        }
+        
+        main {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+        
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid #e0e0e0;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: var(--navy-blue);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 5px;
+            background-color: var(--gold);
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h3 {
+            color: var(--medium-blue);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            background-color: var(--white);
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--gold);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--navy-blue);
+            display: inline-block;
+            background-color: var(--light-grey);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--navy-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            transform: rotateY(360deg);
+            transition: all 0.5s ease;
+        }
+        
+        .service-card h3 {
+            margin-top: 0;
+            color: var(--navy-blue);
+            font-size: 1.4rem;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--navy-blue);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--navy-blue);
+            font-size: 1.05rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--medium-blue);
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+        }
+        
+        button {
+            background: linear-gradient(to right, var(--navy-blue), var(--medium-blue));
+            color: var(--white);
+            border: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        button:hover {
+            background: linear-gradient(to right, var(--medium-blue), var(--navy-blue));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-box {
+            background-color: #f5f5f5;
+            border-left: 5px solid var(--navy-blue);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-box p {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--navy-blue);
+        }
+        
+        .info-box ul {
+            margin-left: 20px;
+        }
+        
+        .info-box li {
+            margin-bottom: 8px;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .contact-card {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-bottom-color: var(--navy-blue);
+        }
+        
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+            background-color: var(--light-grey);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover i {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+        
+        .contact-card h3 {
+            color: var(--navy-blue);
+            margin-top: 0;
+        }
+        
+        footer {
+            background: linear-gradient(to right, #002244, var(--navy-blue), #002244);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--gold);
+        }
+        
+        .footer-logo {
+            width: 70px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            margin: 0 15px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        footer p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Stili per le liste */
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        /* Aggiunti pulsanti call-to-action */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--navy-blue), var(--medium-blue));
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(to right, var(--medium-blue), var(--navy-blue));
+        }
+        
+        /* Animazioni per gli elementi al caricamento */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                display: block;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content {
+                padding: 20px;
+            }
+            
+            .service-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <h1>Stabilimento Balneare Maristaeli Catania</h1>
+            </div>
+            <p>Marina Militare</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#chi-siamo">Chi Siamo</a></li>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#regolamento">Regolamento</a></li>
+                <li><a href="#abbonamenti">Abbonamenti</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h1>Benvenuti allo Stabilimento Balneare Maristaeli</h1>
+            <p>Il vostro luogo di relax sul mare riservato al personale della Marina Militare</p>
+            <img src="logo.png" alt="Logo Marina Militare" class="marina-logo">
+        </div>
+    </div>
+    
+    <main class="container animate-on-scroll">
+        <section id="chi-siamo" class="animate-on-scroll">
+            <h2>Chi Siamo</h2>
+            <p>Lo Stabilimento Balneare di Maristaeli Catania è una struttura riservata al personale militare della Marina Militare in servizio o in quiescenza, nonché al personale delle altre Forze Armate e dei Corpi dello Stato. La nostra missione è offrire un luogo di relax e svago in un ambiente accogliente e familiare.</p>
+            <p>Situato in una splendida posizione sul litorale di Catania, lo stabilimento offre tutti i comfort necessari per trascorrere piacevoli giornate al mare in totale sicurezza e tranquillità.</p>
+            
+            <div class="info-box">
+                <p><strong>Lo stabilimento è riservato a:</strong></p>
+                <ul>
+                    <li>Personale militare in servizio attivo presso la Marina Militare</li>
+                    <li>Personale militare in quiescenza della Marina Militare</li>
+                    <li>Personale militare delle altre Forze Armate e Corpi dello Stato</li>
+                    <li>Vedovi e vedove di personale militare e familiari delle vittime del dovere</li>
+                    <li>Familiari diretti del personale avente diritto</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#abbonamenti" class="cta-button">Richiedi Abbonamento</a>
+            </div>
+        </section>
+        
+        <section id="servizi" class="animate-on-scroll">
+            <h2>I Nostri Servizi</h2>
+            <p>Offriamo una vasta gamma di servizi per rendere la vostra esperienza indimenticabile:</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">???</div>
+                    <h3>Spiaggia Attrezzata</h3>
+                    <p>Ombrelloni e lettini a disposizione degli ospiti per un comfort totale durante la vostra giornata al mare.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">???</div>
+                    <h3>Bar e Ristorante</h3>
+                    <p>Servizio di ristorazione e bar durante tutto l'orario di apertura con menu dedicati e piatti tipici locali.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">??</div>
+                    <h3>Docce e Spogliatoi</h3>
+                    <p>Servizi igienici completi e spogliatoi riservati, sempre puliti e ben mantenuti per il vostro comfort.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">??</div>
+                    <h3>Area Sport</h3>
+                    <p>Campo da beach volley e altre attività sportive per il divertimento di grandi e piccini.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="regolamento" class="animate-on-scroll">
+            <h2>Regolamento e Modalità di Accesso</h2>
+            
+            <h3>Chi può accedere</h3>
+            <ul>
+                <li>Personale militare della Marina in servizio attivo</li>
+                <li>Personale militare della Marina in quiescenza</li>
+                <li>Personale militare delle altre Forze Armate e Corpi dello Stato</li>
+                <li>Vedovi e vedove di personale militare e familiari delle vittime del dovere</li>
+                <li>Familiari diretti dei soggetti sopra indicati</li>
+            </ul>
+            
+            <h3>Documenti necessari</h3>
+            <ul>
+                <li>Tessera di riconoscimento militare in corso di validità</li>
+                <li>Documentazione attestante lo stato di quiescenza (per il personale in congedo)</li>
+                <li>Documentazione attestante lo stato di vedovo/a (per i vedovi/e)</li>
+            </ul>
+            
+            <h3>Orari di apertura</h3>
+            <p>Lo stabilimento è aperto tutti i giorni dalle 9:00 alle 19:30 durante la stagione estiva (dal 1° giugno al 30 settembre).</p>
+            
+            <h3>Regole di comportamento</h3>
+            <p>All'interno dello stabilimento è necessario mantenere un comportamento consono e rispettoso. Il regolamento completo è disponibile presso la direzione dello stabilimento.</p>
+            
+            <div style="text-align: center;">
+                <a href="#contatti" class="cta-button">Contattaci per informazioni</a>
+            </div>
+        </section>
+        
+        <section id="abbonamenti" class="animate-on-scroll">
+            <h2>Abbonamenti e Tariffe</h2>
+            
+            <h3>Tipologie di abbonamento</h3>
+            <ul>
+                <li><strong>Abbonamento Stagionale</strong>: Valido per tutta la stagione estiva, consente l'accesso illimitato allo stabilimento e a tutti i servizi inclusi.</li>
+                <li><strong>Abbonamento Mensile</strong>: Valido per un mese a scelta, ideale per chi desidera godersi lo stabilimento per un periodo limitato.</li>
+            </ul>
+            
+            <h3>Ingresso giornaliero</h3>
+            <p>È possibile accedere allo stabilimento anche con biglietto giornaliero, secondo disponibilità. L'ingresso giornaliero include l'accesso a tutti i servizi base dello stabilimento.</p>
+            
+            <h3>Come richiedere l'abbonamento</h3>
+            <p>Per richiedere l'abbonamento è necessario compilare il modulo sottostante o presentarsi direttamente presso la direzione dello stabilimento con i documenti richiesti.</p>
+            
+            <form id="form-abbonamento">
+                <div class="form-group">
+                    <label for="nome">Nome e Cognome</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Inserisci il tuo nome completo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Seleziona una categoria</option>
+                        <option value="servizio">Personale Marina in servizio</option>
+                        <option value="quiescenza">Personale Marina in quiescenza</option>
+                        <option value="altreforze">Personale altre Forze Armate/Corpi dello Stato</option>
+                        <option value="vedovo">Vedovo/a di personale militare</option>
+                        <option value="familiare">Familiare di avente diritto</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="La tua email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" name="telefono" required placeholder="Il tuo numero di telefono">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tipo-abbonamento">Tipo di Abbonamento</label>
+                    <select id="tipo-abbonamento" name="tipo-abbonamento" required>
+                        <option value="">Seleziona un tipo</option>
+                        <option value="stagionale">Abbonamento Stagionale</option>
+                        <option value="mensile">Abbonamento Mensile</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="note">Note aggiuntive</label>
+                    <textarea id="note" name="note" rows="4" placeholder="Eventuali richieste o informazioni aggiuntive"></textarea>
+                </div>
+                
+                <button type="submit">Invia Richiesta</button>
+            </form>
+        </section>
+        
+        <section id="contatti" class="animate-on-scroll">
+            <h2>Contatti</h2>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fa fa-map-marker"></i>
+                    <h3>Indirizzo</h3>
+                    <p>Via Litoranea, 123<br>95100 Catania CT</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fa fa-phone"></i>
+                    <h3>Telefono</h3>
+                    <p>+39 095 123 4567</p>
+                    <p>+39 095 765 4321</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fa fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@stabilimentomaristaeli.it</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fa fa-clock-o"></i>
+                    <h3>Orario Ufficio</h3>
+                    <p>Dal lunedì al venerdì<br>9:00 - 17:00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <img src="logo.png" alt="Logo Maristaeli Catania" class="footer-logo">
+            <p>&copy; 2025 Stabilimento Balneare Maristaeli Catania - Marina Militare</p>
+            <p>Tutti i diritti riservati</p>
+            <div class="social-links">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome per le icone social -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script>
+        // Script per gestire l'invio del modulo
+        document.getElementById('form-abbonamento').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('La funzionalità di invio del modulo è in fase di implementazione. Per richiedere un abbonamento, si prega di contattare direttamente lo stabilimento.');
+        });
+        
+        // Script per animazioni al scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            function checkScroll() {
+                const triggerBottom = window.innerHeight * 0.8;
+                
+                animateElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    
+                    if (elementTop < triggerBottom) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Verifica gli elementi visibili al caricamento della pagina
+        });
+        
+        // Script per rendere il menu sticky
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
